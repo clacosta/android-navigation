@@ -36,5 +36,8 @@
             app:launchSingleTop="false"
             app:popUpTo="@+id/nav_graph"
             app:popUpToInclusive="false" />
+        <argument
+            android:name="produtoId"
+            app:argType="long" />
     </fragment>
 </navigation>
