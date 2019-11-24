@@ -55,7 +55,7 @@ class DetalhesProdutoFragment : Fragment() {
     private fun vaiParaPagamento() {
         val bundle = Bundle()
         bundle.putLong(CHAVE_PRODUTO_ID, produtoId)
-        navController.navigate(R.id.pagamento, bundle)
+        navController.navigate(R.id.action_detalhesProduto_to_pagamento, bundle)
     }
 
     private fun buscaProduto() {
