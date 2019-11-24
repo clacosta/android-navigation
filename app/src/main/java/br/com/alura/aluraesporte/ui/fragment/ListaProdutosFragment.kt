@@ -22,7 +22,9 @@ class ListaProdutosFragment : Fragment() {
 
     private val viewModel: ProdutosViewModel by viewModel()
     private val adapter: ProdutosAdapter by inject()
-    var quandoProdutoSelecionado: (produto: Produto) -> Unit = {}
+    private val navController by lazy {
+        findNavController()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,13 +58,16 @@ class ListaProdutosFragment : Fragment() {
     private fun configuraRecyclerView() {
         val divisor = DividerItemDecoration(context, VERTICAL)
         lista_produtos_recyclerview.addItemDecoration(divisor)
-        adapter.onItemClickListener = {produto ->
-            val bundle = Bundle()
-            bundle.putLong(CHAVE_PRODUTO_ID, produto.id)
-            val navController = findNavController()
-            navController.navigate(R.id.detalhesProduto, bundle)
+        adapter.onItemClickListener = { produto ->
+            vaiParaDetalheProduto(produto)
         }
         lista_produtos_recyclerview.adapter = adapter
+    }
+
+    private fun vaiParaDetalheProduto(produto: Produto) {
+        val bundle = Bundle()
+        bundle.putLong(CHAVE_PRODUTO_ID, produto.id)
+        navController.navigate(R.id.detalhesProduto, bundle)
     }
 
 }
