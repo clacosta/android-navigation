@@ -87,7 +87,7 @@ class PagamentoFragment : Fragment() {
     }
 
     private fun vaiParaListaProdutos() {
-        navController.popBackStack(R.id.action_pagamento_to_listaProdutos, false)
+        navController.navigate(R.id.action_pagamento_to_listaProdutos)
     }
 
     private fun criaPagamento(): Pagamento? {
