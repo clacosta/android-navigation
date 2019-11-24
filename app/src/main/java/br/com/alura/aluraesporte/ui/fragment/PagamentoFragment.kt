@@ -80,7 +80,6 @@ class PagamentoFragment : Fragment() {
                             COMPRA_REALIZADA,
                             Toast.LENGTH_SHORT
                         ).show()
-                        //TODO: Avaliar código
                         vaiParaListaProdutos()
                     }
                 })
@@ -88,7 +87,7 @@ class PagamentoFragment : Fragment() {
     }
 
     private fun vaiParaListaProdutos() {
-        navController.popBackStack(R.id.listaProdutos, false)
+        navController.popBackStack(R.id.action_pagamento_to_listaProdutos, false)
     }
 
     private fun criaPagamento(): Pagamento? {
